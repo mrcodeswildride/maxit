@@ -1,4 +1,3 @@
-let rows = document.getElementsByClassName(`row`)
 let squares = document.getElementsByClassName(`square`)
 let rowParagraph = document.getElementById(`rowParagraph`)
 let columnParagraph = document.getElementById(`columnParagraph`)
@@ -83,6 +82,9 @@ function selectSquare(square) {
 }
 
 function getNeighbor(square, xDiff, yDiff) {
+  // array of rows
+  let rows = document.getElementsByClassName(`row`)
+
   let row = square.parentElement // row of square
   let y // y coordinate of square, set below
   let x // x coordinate of square, set below
