@@ -3,18 +3,18 @@ let rowParagraph = document.getElementById(`rowParagraph`)
 let columnParagraph = document.getElementById(`columnParagraph`)
 let messageParagraph = document.getElementById(`messageParagraph`)
 
-let selectedSquare = squares[Math.floor(Math.random() * squares.length)]
 let turn = `row`
+let selectedSquare = squares[Math.floor(Math.random() * squares.length)]
+
 let total = {
   row: 0,
-  column: 0
+  column: 0,
 }
 
 for (let square of squares) {
   if (square == selectedSquare) {
     square.classList.add(`selected`)
-  }
-  else {
+  } else {
     square.innerHTML = Math.floor(Math.random() * 21) - 10
   }
 
@@ -32,8 +32,7 @@ function showChoices() {
 
       if (turn == `row`) {
         neighbor = getNeighbor(selectedSquare, i, 0)
-      }
-      else {
+      } else {
         neighbor = getNeighbor(selectedSquare, 0, i)
       }
 
@@ -55,11 +54,9 @@ function clickSquare() {
     if (!choiceAdded) {
       if (total.row > total.column) {
         messageParagraph.innerHTML = `Row wins!`
-      }
-      else if (total.column > total.row) {
+      } else if (total.column > total.row) {
         messageParagraph.innerHTML = `Column wins!`
-      }
-      else {
+      } else {
         messageParagraph.innerHTML = `Tie game`
       }
     }
@@ -109,8 +106,7 @@ function getNeighbor(square, xDiff, yDiff) {
   if (neighborRow == null) {
     // row is beyond edge, so no neighbor square
     return null
-  }
-  else {
+  } else {
     // if x + xDiff is beyond edge, will be null
     return neighborRow.children[x + xDiff]
   }
